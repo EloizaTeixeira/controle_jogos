@@ -39,6 +39,7 @@ void retirar_enter(string str);
 void formatar_maiuscula(string str);
 void listar_jogos_cadastrados(no_t *lista);
 int sub_menu_cadastro();
+void exportar_dados_arquivo_texto(char* nome, no_t *lista);
 
 int main()
 {
@@ -75,6 +76,8 @@ int main()
                     break;
             case 3: break;
             case 4: break;
+            case 5: exportar_dados_arquivo_texto("jogos.txt", lista); 
+                    break;
         }
 
     } while (opc_principal != 0);
@@ -94,6 +97,7 @@ int menu()
     printf("2) Listar jogos cadastrados\n");
     printf("3) Encontrar jogo por nome\n");
     printf("4) Excluir jogo da lista\n");
+    printf("5) Exportar dados para arquivo texto\n");
     printf("0) Sair do programa\n");
     printf("---------------------\n");
     printf("::: ");
@@ -254,5 +258,31 @@ void listar_jogos_cadastrados(no_t *lista)
         lista = lista->prox;
     }
 
+
+}
+
+void exportar_dados_arquivo_texto(char* nome, no_t *lista)
+{
+    FILE *fd = NULL;
+
+    fd = fopen(nome,"w");
+
+    if (!fd) return;
+
+    for (lista; lista != NULL; lista = lista->prox) {
+
+    fprintf(fd, "Nome do jogo.........: %s\n", lista->dados_jogo.nome);
+
+    fprintf(fd, "Ano lançamento.......: %i\n", lista->dados_jogo.ano);
+
+    fprintf(fd, "Gênero do jogo.......: %s\n", lista->dados_jogo.genero);
+
+    fprintf(fd, "Produtora do jogo....: %s\n", lista->dados_jogo.produtora);
+
+    fprintf(fd, "Valor................: %.2f\n\n", lista->dados_jogo.valor);
+
+    }
+
+    fclose(fd);
 
 }

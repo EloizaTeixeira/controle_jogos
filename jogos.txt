@@ -1,0 +1,12 @@
+Nome do jogo.........: GOD OF WAR
+Ano lançamento.......: 2018
+Gênero do jogo.......: AçãO
+Produtora do jogo....: SEGA
+Valor................: 300.00
+
+Nome do jogo.........: THE LAST OF US
+Ano lançamento.......: 2013
+Gênero do jogo.......: AçãO
+Produtora do jogo....: NAUTY DOG
+Valor................: 2500.00
+
